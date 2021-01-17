@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LocationData from './components/LocationData';
 import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
+import WeatherForecast from './components/WeatherForecast';
 
 const Wrapper = styled.main`
 	/* border: 1px solid white; */
@@ -23,6 +24,7 @@ function App() {
 					<WeatherToday />
 					<WeatherTomorrow />
 				</div>
+				<WeatherForecast />
 			</Wrapper>
 		</>
 	);

@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 p {
 	letter-spacing: 2px;
+	text-transform: initial;
 }
 
 h2 {
@@ -37,23 +38,58 @@ h3 {
 	font-weight: 300;
 	font-size: 18px;
 }
+.flex {
+	display: flex;
+}
 .flexLayout {
 	display: flex;
-	:first-child {
+	padding: 20px 0;
+	> div {
 		width: 75%;
 	}
-	:last-child {
+	> aside {
 		width: 25%;
 	}
 }
 .dotted {
-	margin-top: 10px;
-	padding: .55em 1.6875em;
-	background-image: -webkit-repeating-radial-gradient(center center, rgba(255,255,255,.4), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
-	background-image: -moz-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
-	background-image: -ms-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
-	-webkit-background-size: 3px 3px;
-	-moz-background-size: 3px 3px;
-	background-size: 3px 3px;
+	margin-top              : 10px;
+	padding                 : .55em 1.6875em;
+	background-image        : -webkit-repeating-radial-gradient(center center, rgba(255,255,255,.4), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+	background-image        : -moz-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+	background-image        : -ms-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+	background-image        : repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+	-webkit-background-size : 3px 3px;
+	-moz-background-size    : 3px 3px;
+	background-size         : 3px 3px;
 }
+.currentWeatherLayout {
+	display         : flex;
+	justify-content : space-between;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	> div {
+		width   : 33%;
+		// border  : 1px solid white;
+		padding : 15px;
+	}
+	> div:nth-child(2) {
+		text-align : center;
+	}
+	.mainTemp h2 {
+		font-size   : 70px;
+		line-height : 60px;
+	}
+}
+.todayData {
+	justify-content : space-between;
+	padding-top: 20px;
+	> div {
+		width      : 33.33%;
+		text-align : center;
+		padding    : 20px;
+	}
+	> div:nth-child(1),
+	> div:nth-child(2) {
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
+	}
+}
+

@@ -14,6 +14,9 @@ const LocationDataWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    .sunData {
+        text-align: right;
+    }
 `;
 const Header = styled.header`
     display: flex;
@@ -30,7 +33,7 @@ function LocationData() {
                         <h3>Sun Jan 17 2021</h3>
                         <h3 id="clock">10:45:32</h3>
                     </div>
-                    <div>
+                    <div className="sunData">
                         <h3 className="sunriseTime">SUNRISE: 07:48</h3>
                         <h3 className="sunsetTime">SUNSET: 17:11</h3>
                     </div>
