@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { WiDaySleet } from 'react-icons/wi';
 
 const DailyWeatherInfo = styled.div`
-    width : calc(100% / 7);
-    text-align:center;
-    padding: 15px 0;
+    width      : calc(100% / 7);
+    text-align : center;
+    padding    : 15px 0;
     p {
-        margin-bottom: 10px;
+        margin-bottom : 10px;
     }
     svg {
         width  : 50px;

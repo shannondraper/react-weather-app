@@ -20,8 +20,8 @@ const WeatherForTheWeek = styled.div`
 function WeatherToday() {
     return (
         <WeatherForecast>
-            <section class="forecast">
-                <div class="forecastTitle">
+            <section className="forecast">
+                <div className="forecastTitle">
                     <h3>Forecast</h3>
                 </div>
                 <WeatherForTheWeek>
