@@ -42,7 +42,7 @@ function WeatherToday({ weather }) {
                 </div>
                 <div className="pop">
                     <h3>P.0.P.</h3>
-                    {weather && <h2>{weather.currently.precipProbability}%</h2>}
+                    {weather && <h2>{Math.round(weather.currently.precipProbability)}%</h2>}
                 </div>
             </div>
         </WeatherTodayWrapper>

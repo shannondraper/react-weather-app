@@ -15,7 +15,6 @@ const DailyWeatherInfo = styled.div`
     }
 `;
 
-
 function WeatherDaily({ day }) {
     return (
         <DailyWeatherInfo>

@@ -12,8 +12,6 @@ const Wrapper = styled.main`
 	margin         : 0px auto;
 `;
 
-
-
 export default function App() {
 	// const [error, setError] = useState(null);
 	// const [isLoaded, setIsLoaded] = useState(false);

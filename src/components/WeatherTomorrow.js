@@ -11,18 +11,18 @@ const WeatherTomorrowWrapper = styled.aside`
     margin: 0 0 0 20px;
 `;
 
-function WeatherTomorrow() {
+function WeatherTomorrow({ weather }) {
     return (
         <WeatherTomorrowWrapper>
             <div>
                 <h3>Tomorrow</h3>
-                <h2>3°C</h2>
+                {weather && <h2>{Math.round(weather.daily.data[1].temperatureHigh)}°C</h2>}
             </div>
             <div>
-                <img src="https://via.placeholder.com/80x80" alt="" />
+                {weather && <p>{weather.daily.data[1].icon} icon goes here.</p>}
             </div>
             <div>
-                <p>Mostly cloudy throughout the day.</p>
+                {weather && <p>{weather.daily.data[1].summary}</p>}
             </div>
         </WeatherTomorrowWrapper>
     )
