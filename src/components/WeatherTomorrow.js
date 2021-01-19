@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import WeatherIcon from './WeatherIcon';
 
 const WeatherTomorrowWrapper = styled.aside`
     /* border: 1px solid blue; */
@@ -19,7 +20,7 @@ function WeatherTomorrow({ weather }) {
                 {weather && <h2>{Math.round(weather.daily.data[1].temperatureHigh)}°C</h2>}
             </div>
             <div>
-                {weather && <p>{weather.daily.data[1].icon} icon goes here.</p>}
+                {weather && <WeatherIcon DarkSkyIconName={weather.daily.data[1].icon} />}
             </div>
             <div>
                 {weather && <p>{weather.daily.data[1].summary}</p>}

@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import WeatherDaily from './WeatherDaily';
 
 const weekArray = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+// weekArray.forEach(function (item, index) {
+//     console.log(item, index);
+
+// })
 
 const WeatherForecast = styled.div`
     /* border: 1px solid orange; */
@@ -17,7 +21,7 @@ const WeatherForTheWeek = styled.div`
     display: flex;
 `;
 
-function WeatherToday() {
+function WeatherToday({ weather }) {
     return (
         <WeatherForecast>
             <section className="forecast">
@@ -26,7 +30,15 @@ function WeatherToday() {
                 </div>
                 <WeatherForTheWeek>
                     {/* TO DO: map over daily weather data for each day of the week */}
-                    {weekArray.map((day, i) => <WeatherDaily day={day} key={i} />)}
+                    {
+                        weekArray.map((day, index) =>
+                            <WeatherDaily
+                                weather={weather}
+                                day={day}
+                                index={index}
+                            />
+                        )
+                    }
                 </WeatherForTheWeek>
             </section>
         </WeatherForecast>

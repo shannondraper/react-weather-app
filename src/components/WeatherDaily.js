@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WiDaySleet } from 'react-icons/wi';
+// import { WiDaySleet } from 'react-icons/wi';
+import WeatherIcon from './WeatherIcon';
 
 const DailyWeatherInfo = styled.div`
     width      : calc(100% / 7);
@@ -15,13 +16,13 @@ const DailyWeatherInfo = styled.div`
     }
 `;
 
-function WeatherDaily({ day }) {
+function WeatherDaily({ day, weather, index }) {
     return (
         <DailyWeatherInfo>
             <h4>{day}</h4>
             <p>Jan 18</p>
             <span className="weatherIcon">
-                <WiDaySleet />
+                {weather && <WeatherIcon DarkSkyIconName={weather && weather.daily.data[`${index}`].icon} />}
             </span>
         </DailyWeatherInfo>
     )
