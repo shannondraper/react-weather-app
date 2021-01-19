@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import WeatherIcon from './WeatherIcon';
+
 
 const WeatherTodayWrapper = styled.div`
     /* border: 1px solid yellow; */
@@ -23,9 +25,7 @@ function WeatherToday({ weather }) {
                 </div>
                 <div className="currentIcon">
                     {weather && <h3>{weather.currently.summary}</h3>}
-                    <span>
-                        {weather && <h3>{weather.currently.icon} icon</h3>}
-                    </span>
+                    <WeatherIcon DarkSkyIconName={weather.currently.icon} />
                 </div>
                 <div className="currentDescription">
                     {weather && <p>{weather.daily.summary}</p>}

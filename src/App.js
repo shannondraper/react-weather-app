@@ -44,12 +44,12 @@ export default function App() {
 	return (
 		<>
 			<Wrapper>
-				<LocationData />
+				<LocationData weather={weather} />
 				<div className="flexLayout">
 					<WeatherToday weather={weather} />
 					<WeatherTomorrow weather={weather} />
 				</div>
-				<WeatherForecast />
+				<WeatherForecast weather={weather} />
 			</Wrapper>
 		</>
 	)
