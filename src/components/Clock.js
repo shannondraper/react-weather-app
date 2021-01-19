@@ -13,6 +13,7 @@ export default function Clock() {
     function tick() {
         setDate(new Date());
     }
+    // console.log(new DS)
 
     return (
         <>

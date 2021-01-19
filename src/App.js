@@ -5,8 +5,7 @@ import LocationData from './components/LocationData';
 import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
-// import DateComponent from './components/DateComponent';
-
+// import loader from '../public/loader.svg';
 
 const Wrapper = styled.main`
 	display        : flex;
@@ -15,9 +14,7 @@ const Wrapper = styled.main`
 `;
 
 export default function App() {
-	// const [error, setError] = useState(null);
-	// const [isLoaded, setIsLoaded] = useState(false);
-	// const [items, setItems] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const [weather, setWeather] = useState(null);
 	const weatherURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
 	// const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${43.6532}&lon=${79.3832}&units=metric&exclude=hourly&appid=${process.env.REACT_APP_OW_KEY}`;
@@ -29,7 +26,8 @@ export default function App() {
 			const data = await response.json();
 			setWeather(data)
 		}
-		fetchData();
+		fetchData()
+		setLoading(false)
 		// fetch(weatherURL)
 		// 	.then(response => response.json())
 		// 	.then(data => {
@@ -46,6 +44,9 @@ export default function App() {
 	return (
 		<>
 			<Wrapper>
+				{/* {
+					loading ? 
+				} */}
 				<LocationData weather={weather} />
 				<div className="flexLayout">
 					<WeatherToday weather={weather} />

@@ -16,10 +16,16 @@ const DailyWeatherInfo = styled.div`
 `;
 
 function WeatherDaily({ day, weather, index }) {
+
+    const unixTimestamp = weather.daily.data[index + 1].time;
+    const dateObject = new Date(unixTimestamp * 1000);
+    const month = dateObject.toLocaleString("en-US", { month: "long" }).substring(0, 3);
+    const dayOfMonth = dateObject.toLocaleString("en-US", { day: "numeric" });
+
     return (
         <DailyWeatherInfo>
             <h4>{day}</h4>
-            <p>Jan 18</p>
+            <p>{month} {dayOfMonth}</p>
             <span className="weatherIcon">
                 {weather && <WeatherIcon DarkSkyIconName={weather && weather.daily.data[`${index}`].icon} />}
             </span>
