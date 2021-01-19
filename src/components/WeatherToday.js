@@ -6,43 +6,43 @@ const WeatherTodayWrapper = styled.div`
 `;
 
 
-function WeatherToday() {
+function WeatherToday({ weather }) {
     return (
         <WeatherTodayWrapper>
-            {/* <h2>Weather Today</h2> */}
             <div className="currentWeatherLayout">
                 <div className="currentTemp">
                     <h3>Current Temp.</h3>
                     <div className="mainTemp">
-                        <h2>2°C</h2>
+                        {weather && <h2>{Math.round(weather.currently.temperature)}°C</h2>}
                     </div>
                     <div className="lowHighTemp">
-                        <span>-7°C /</span>
-                        <span>-1°C</span>
+                        {weather && <span>{Math.round(weather.daily.data[0].apparentTemperatureLow)}°C</span>}
+                        <span> / </span>
+                        {weather && <span>{Math.round(weather.daily.data[0].apparentTemperatureHigh)}°C</span>}
                     </div>
                 </div>
                 <div className="currentIcon">
-                    <h3>Mostly Cloudy</h3>
+                    {weather && <h3>{weather.currently.summary}</h3>}
                     <span>
-                        <img src="https://via.placeholder.com/80x80" alt="" />
+                        {weather && <h3>{weather.currently.icon} icon</h3>}
                     </span>
                 </div>
                 <div className="currentDescription">
-                    <p>No precipitation throughout the week.</p>
+                    {weather && <p>{weather.daily.summary}</p>}
                 </div>
             </div>
             <div className="todayData flex">
                 <div className="feelsLike">
                     <h3>Feels Like</h3>
-                    <h2>-3°C</h2>
+                    {weather && <h2>{Math.round(weather.currently.apparentTemperature)}°C</h2>}
                 </div>
                 <div className="humidity">
                     <h3>Humidity</h3>
-                    <h2>82%</h2>
+                    {weather && <h2>{weather.currently.humidity * 100}%</h2>}
                 </div>
                 <div className="pop">
                     <h3>P.0.P.</h3>
-                    <h2>0%</h2>
+                    {weather && <h2>{weather.currently.precipProbability}%</h2>}
                 </div>
             </div>
         </WeatherTodayWrapper>
