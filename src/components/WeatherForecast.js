@@ -36,6 +36,7 @@ function WeatherToday({ weather }) {
                                 weather={weather}
                                 day={day}
                                 index={index}
+                                key={index}
                             />
                         )
                     }

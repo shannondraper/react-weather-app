@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { WiDaySleet } from 'react-icons/wi';
 import WeatherIcon from './WeatherIcon';
 
 const DailyWeatherInfo = styled.div`

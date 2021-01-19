@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import DateComponent from './DateComponent';
+import Clock from './Clock';
 
 const HeadingWhite = styled.h2`
     color: #1F6D9E;
@@ -34,16 +36,14 @@ function LocationData({ weather }) {
     const utcStringSunrise = sunriseObj.toUTCString();
     const sunriseNewTime = utcStringSunrise.slice(-12, -7);
 
-    // const epochData = Math.floor(new Date().getTime() / 1000.0));
     return (
         <>
             <Header>
                 <LocationDataWrapper>
                     <div>
                         <HeadingWhite>Toronto</HeadingWhite>
-                        <h3>Sun Jan 17 2021</h3>
-                        <h3 id="clock">10:45:32</h3>
-                        {/* <h3 id="clock">{epochData}</h3> */}
+                        <DateComponent />
+                        <Clock />
                     </div>
                     <div className="sunData">
                         <h3 className="sunriseTime">

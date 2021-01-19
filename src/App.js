@@ -5,6 +5,8 @@ import LocationData from './components/LocationData';
 import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
+// import DateComponent from './components/DateComponent';
+
 
 const Wrapper = styled.main`
 	display        : flex;
