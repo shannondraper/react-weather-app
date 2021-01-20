@@ -1,3 +1,6 @@
+# Deploy with Netlify
+From terminal, run `netlify build` and then `netlify deploy`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
