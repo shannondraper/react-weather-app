@@ -5,7 +5,6 @@ import LocationData from './components/LocationData';
 import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
-// import loader from '../public/loader.svg';
 
 const Wrapper = styled.main`
 	display        : flex;
@@ -14,11 +13,8 @@ const Wrapper = styled.main`
 `;
 
 export default function App() {
-	const [loading, setLoading] = useState(true);
 	const [weather, setWeather] = useState(null);
 	const weatherURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
-	// const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${43.6532}&lon=${79.3832}&units=metric&exclude=hourly&appid=${process.env.REACT_APP_OW_KEY}`;
-
 
 	useEffect(() => {
 		async function fetchData() {
@@ -27,26 +23,20 @@ export default function App() {
 			setWeather(data)
 		}
 		fetchData()
-		setLoading(false)
-		// fetch(weatherURL)
-		// 	.then(response => response.json())
-		// 	.then(data => {
-		// 		setWeather(data);
-		// 		// return data;
-		// 	}).catch(err => console.log(err))
+
+		fetch(weatherURL)
+			.then(response => response.json())
+			.then(json => setWeather(json))
 	}, [])
 
-
-	// whatever [] changes, hook is going to re-run
-
-	console.log(weather)
+	// trigger useEffect to re-run once real weather data is loaded
+	if (weather === null) {
+		return null;
+	}
 
 	return (
 		<>
 			<Wrapper>
-				{/* {
-					loading ? 
-				} */}
 				<LocationData weather={weather} />
 				<div className="flexLayout">
 					<WeatherToday weather={weather} />

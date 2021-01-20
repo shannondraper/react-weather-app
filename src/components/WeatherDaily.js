@@ -15,19 +15,21 @@ const DailyWeatherInfo = styled.div`
     }
 `;
 
-function WeatherDaily({ day, weather, index }) {
+function WeatherDaily({ weather, index }) {
 
-    const unixTimestamp = weather.daily.data[index + 1].time;
+    // convert unix timestamp from api to date
+    const unixTimestamp = weather.daily.data[index].time;
     const dateObject = new Date(unixTimestamp * 1000);
     const month = dateObject.toLocaleString("en-US", { month: "long" }).substring(0, 3);
     const dayOfMonth = dateObject.toLocaleString("en-US", { day: "numeric" });
+    const dayOfWeek = dateObject.toLocaleString("en-US", { weekday: "short" });
 
     return (
         <DailyWeatherInfo>
-            <h4>{day}</h4>
+            <h4>{dayOfWeek}</h4>
             <p>{month} {dayOfMonth}</p>
             <span className="weatherIcon">
-                {weather && <WeatherIcon DarkSkyIconName={weather && weather.daily.data[`${index}`].icon} />}
+                {<WeatherIcon DarkSkyIconName={weather.daily.data[`${index}`].icon} />}
             </span>
         </DailyWeatherInfo>
     )

@@ -17,8 +17,8 @@ import {
 } from 'react-icons/wi';
 
 const IconContainer = styled.span`
-    width   : 50px;
-    height  : 50px;
+    width   : 70px;
+    height  : 70px;
     display : inline-block;
     margin  : 15px 10px;
     svg {
