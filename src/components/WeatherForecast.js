@@ -26,7 +26,7 @@ function WeatherToday({ weather }) {
                 <div className="forecastTitle">
                     <h3>Forecast</h3>
                 </div>
-                <WeatherForTheWeek>
+                <WeatherForTheWeek className="weatherForTheWeek">
                     {
                         weekArray.map((day, index) =>
                             <WeatherDaily

@@ -1,6 +1,8 @@
-#root {
-	width     : 100%;
-	max-width : 900px;
+* {
+	box-sizing     : border-box;
+	color          : white;
+	font-family    : 'Dosis';
+	text-transform : uppercase;
 }
 body {
 	background      : #43cea2;                                               /* fallback for old browsers */
@@ -18,12 +20,10 @@ body {
 	font-family     : 'Dosis', sans-serif;
 	font-weight     : 300;
 }
-* {
-    color          : white;
-    font-family    : 'Dosis';
-    text-transform : uppercase;
+main {
+	width     : 100%;
+	max-width : 900px;
 }
-
 h1, h2, h3, h4, h5, h6, p {
 	margin      : 0;
 	font-family : 'Dosis', sans-serif;
@@ -93,6 +93,61 @@ h3 {
 	> div:nth-child(1),
 	> div:nth-child(2) {
 		border-right : 1px solid rgba(255, 255, 255, 0.4);
+	}
+}
+@media (max-width: 767px) {
+	body {
+		margin : 30px;
+	}
+	.todayData {
+		padding : 20px 0;
+	}
+	.flexLayout {
+		flex-direction : column;
+		padding-bottom : 0;
+		aside {
+			width          : 100%;
+			flex-direction : row;
+			border-left    : none;
+			border-top     : 1px solid rgba(255, 255, 255, 0.4);
+			margin-left    : 0;
+			box-sizing     : border-box;
+			padding        : 0;
+			div {
+				width           : calc(100% / 3);
+				margin          : 20px 0;
+				padding         : 0 20px;
+				display         : flex;
+				flex-direction  : column;
+				justify-content : center;
+				text-align      : center;
+				align-items     : center;
+				border-right    : 1px solid rgba(255, 255, 255, 0.4);
+			}
+			> div:last-child {
+				border-right : none;
+			}
+		}
+	}
+}
+@media (max-width: 500px) {
+	.currentWeatherLayout,
+	.todayData,
+	.flexLayout aside,
+	.weatherForTheWeek {
+		flex-direction : column;
+		div {
+			width        : 100%;
+			text-align   : center;
+			border-right : 0;
+		}
+	}
+	.todayData > div:nth-child(1),
+	.todayData > div:nth-child(2) {
+		border-right : 0;
+	}
+	.forecastTitle {
+		text-align : center;
 	}
 }
 
