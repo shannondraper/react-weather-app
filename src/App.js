@@ -1,10 +1,12 @@
 import './App.scss';
-import React, { useEffect, useState } from 'react';
+import './Switch.scss';
+import React, { useEffect, useState, setState } from 'react';
 import styled from 'styled-components';
 import LocationData from './components/LocationData';
 import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
+import Settings from './components/Settings';
 
 const Wrapper = styled.main`
 	display        : flex;
@@ -13,8 +15,19 @@ const Wrapper = styled.main`
 `;
 
 export default function App() {
+	const metricURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
+	const imperialURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271`;
+
+
+	const [weatherURL, setWeatherURL] = useState(metricURL);
 	const [weather, setWeather] = useState(null);
-	const weatherURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
+	// const [clockChecked, setClockChecked] = useState(false);
+	const [farenheitChecked, setFarenheitChecked] = useState(false);
+
+	function handleTemperatureScaleChange(newValue) {
+		setFarenheitChecked(newValue)
+		newValue ? setWeatherURL(imperialURL) : setWeatherURL(metricURL)
+	}
 
 	useEffect(() => {
 		async function fetchData() {
@@ -27,7 +40,7 @@ export default function App() {
 		fetch(weatherURL)
 			.then(response => response.json())
 			.then(json => setWeather(json))
-	}, [])
+	}, [weatherURL])
 
 	// trigger useEffect to re-run once real weather data is loaded
 	if (weather === null) {
@@ -37,12 +50,26 @@ export default function App() {
 	return (
 		<>
 			<Wrapper>
-				<LocationData weather={weather} />
+				<LocationData
+					weather={weather}
+				/>
+				<Settings
+					onChange={handleTemperatureScaleChange}
+					farenheitChecked={farenheitChecked}
+				/>
 				<div className="flexLayout">
-					<WeatherToday weather={weather} />
-					<WeatherTomorrow weather={weather} />
+					<WeatherToday
+						weather={weather}
+						farenheitChecked={farenheitChecked}
+					/>
+					<WeatherTomorrow
+						weather={weather}
+						farenheitChecked={farenheitChecked}
+					/>
 				</div>
-				<WeatherForecast weather={weather} />
+				<WeatherForecast
+					weather={weather}
+				/>
 			</Wrapper>
 		</>
 	)

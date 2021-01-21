@@ -11,12 +11,17 @@ const WeatherTomorrowWrapper = styled.aside`
     margin          : 0 0 0 20px;
 `;
 
-function WeatherTomorrow({ weather }) {
+function WeatherTomorrow({ weather, farenheitChecked }) {
     return (
         <WeatherTomorrowWrapper>
             <div>
                 <h3>Tomorrow</h3>
-                {<h2>{Math.round(weather.daily.data[1].temperatureHigh)}°C</h2>}
+                {
+                    <h2>
+                        {Math.round(weather.daily.data[1].temperatureHigh)}
+                        {farenheitChecked ? '°F' : '°C'}
+                    </h2>
+                }
             </div>
             <div>
                 {<WeatherIcon DarkSkyIconName={weather.daily.data[1].icon} />}

@@ -79,7 +79,18 @@ h3 {
 	}
 	.mainTemp h2 {
 		font-size   : 70px;
-		line-height : 60px;
+		line-height : 70px;
+	}
+	.lowHighTemp {
+		display : flex;
+		span {
+			display     : flex;
+			align-items : center;
+			width       : 60px;
+			&:first-of-type {
+				margin-right: 15px;
+			}
+		}
 	}
 }
 .todayData {

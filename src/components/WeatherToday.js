@@ -1,19 +1,38 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon';
+import { BsArrowDown, BsArrowUp } from 'react-icons/bs';
 
-function WeatherToday({ weather }) {
+function WeatherToday({ weather, farenheitChecked }) {
+    console.log(weather);
     return (
         <section>
             <div className="currentWeatherLayout">
                 <div className="currentTemp">
                     <h3>Current Temp.</h3>
                     <div className="mainTemp">
-                        {<h2>{Math.round(weather.currently.temperature)}°C</h2>}
+                        {
+                            <h2>
+                                {Math.round(weather.currently.temperature)}
+                                {farenheitChecked ? '°F' : '°C'}
+                            </h2>
+                        }
                     </div>
                     <div className="lowHighTemp">
-                        {<span>{Math.round(weather.daily.data[0].temperatureLow)}°C</span>}
-                        <span> / </span>
-                        {<span>{Math.round(weather.daily.data[0].temperatureHigh)}°C</span>}
+                        {
+                            <span>
+                                <BsArrowDown />
+                                {Math.round(weather.daily.data[0].temperatureLow)}
+                                {farenheitChecked ? '°F' : '°C'}
+                            </span>
+                        }
+                        {/* <span> / </span> */}
+                        {
+                            <span>
+                                <BsArrowUp />
+                                {Math.round(weather.daily.data[0].temperatureHigh)}
+                                {farenheitChecked ? '°F' : '°C'}
+                            </span>
+                        }
                     </div>
                 </div>
                 <div className="currentIcon">
@@ -27,7 +46,12 @@ function WeatherToday({ weather }) {
             <div className="todayData flex">
                 <div className="feelsLike">
                     <h3>Feels Like</h3>
-                    {<h2>{Math.round(weather.currently.apparentTemperature)}°C</h2>}
+                    {
+                        <h2>
+                            {Math.round(weather.currently.apparentTemperature)}
+                            {farenheitChecked ? '°F' : '°C'}
+                        </h2>
+                    }
                 </div>
                 <div className="humidity">
                     <h3>Humidity</h3>
