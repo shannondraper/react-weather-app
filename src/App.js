@@ -16,9 +16,10 @@ const Wrapper = styled.main`
 
 export default function App() {
 	// const imperialURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271`;
-	const metricURL = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
+	// const metricURL = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
 	// const metricURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
 
+	const metricURL = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
 
 	const [weatherURL, setWeatherURL] = useState(metricURL);
 	const [weather, setWeather] = useState(null);
