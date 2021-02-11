@@ -2,56 +2,59 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 
 const SettingsWrapper = styled.aside`
-position   : absolute;
-right      : 60px;
-top        : 30px;
-transition : 0.2s all ease;
-opacity    : 0.4;
-&:hover {
-    opacity : 1;
-}
+    position   : absolute;
+    right      : 60px;
+    top        : 30px;
+    transition : 0.2s all ease;
+    opacity    : 0.4;
+    &:hover {
+        opacity : 1;
+    }
 `;
 
-export default function Settings(props) {
-    const [temperatureScale, setTemperatureScale] = useState(false);
-    const [farenheitChecked, setFarenheitChecked] = useState(false);
+export default function Settings({
+    // handleTemperatureScaleChange,
+    // farenheitChecked
+}) {
+    // const [farenheitChecked, setFarenheitChecked] = useState(false);
+    // const [clockChecked, setClockChecked] = useState(false);
 
-    // const handleTemperatureScaleChange = (e) => {
-    //     setTemperatureScale(e.target.checked);
+    // const updateTemperatureScale = (e) => {
+    //     setFarenheitChecked(e.target.checked)
+    //     console.log('farenheitChecked =', e.target.checked)
     // }
-    function handleTemperatureScaleChange(event) {
-        props.onChange(event.target.checked);
-    }
+    // const updateClockScale = (e) => {
+    //     setClockChecked(e.target.checked)
+    //     console.log('ClockChecked =', e.target.checked)
+    // }
 
     return (
         <SettingsWrapper className="settings" >
-            <div>
-                <p>Is it checked? {temperatureScale ? "true" : "false"}</p>
+            {/* <div>
+                <p>Is it checked? {clockChecked ? "true" : "false"}</p>
                 <label className="switch hour-switch">
                     <input
                         type="checkbox"
                         id="hour-switch"
-                    // checked={props.clockChecked}
-                    // onChange={handleClockChange}
+                        checked={clockChecked}
+                        onChange={updateClockScale}
                     />
                     <span className="slider round"></span>
                 </label>
-            </div>
+            </div> */}
             <div>
-                {/* <p>Is it checked? {props.farenheitChecked ? "true" : "false"}</p> */}
+                {/* <p>Is it checked? {farenheitChecked ? "true" : "false"}</p> */}
                 <label className="switch degree-switch">
                     <input
                         type="checkbox"
                         id="degree-switch"
-                        checked={props.farenheitChecked}
-                        onChange={handleTemperatureScaleChange}
-                    // checked={temperatureScale}
-                    // onChange={(e) => { handleTemperatureScaleChange(e) }}
+                    // checked={farenheitChecked}
+                    // onChange={updateTemperatureScale}
                     />
                     <span className="slider round"></span>
                 </label>
-            </div>
-        </SettingsWrapper>
+            </div >
+        </SettingsWrapper >
     )
 
 }
