@@ -14,7 +14,7 @@ const Wrapper = styled.main`
 
 export default function App() {
 	const [weather, setWeather] = useState(null);
-	const weatherURL = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
+	const weatherURL = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/43.585891,-79.5835271?units=si`;
 
 	useEffect(() => {
 		async function fetchData() {
