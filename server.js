@@ -16,4 +16,4 @@ app.get('/weather', async (request, response) => {
     response.json(json);
 })
 
-app.listen(port, () => console.log(`listening on port ${port}`))
+app.listen(port, () => console.log(`listening on port: ${port}`))
