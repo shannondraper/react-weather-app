@@ -30,7 +30,7 @@ export default function App() {
 	// 	farenheitChecked ? setWeatherURL(imperialURL) : setWeatherURL(metricURL)
 	// }
 
-	// api data from proxied url
+
 	const apiURL = `/weather`;
 
 	useEffect(() => {
