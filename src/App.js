@@ -31,7 +31,8 @@ export default function App() {
 	// }
 
 	// api data from proxied url
-	const apiURL = `/weather`;
+	// const apiURL = `/weather`;
+	const apiURL = 'https://express-weather-api.herokuapp.com/';
 
 	useEffect(() => {
 		async function fetchData() {
