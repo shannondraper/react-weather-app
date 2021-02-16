@@ -3,7 +3,6 @@ import WeatherIcon from './WeatherIcon';
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs';
 
 function WeatherToday({ weather, farenheitChecked }) {
-    // console.log(weather);
     return (
         <section>
             <div className="currentWeatherLayout">
@@ -25,7 +24,6 @@ function WeatherToday({ weather, farenheitChecked }) {
                                 {farenheitChecked ? '°F' : '°C'}
                             </span>
                         }
-                        {/* <span> / </span> */}
                         {
                             <span>
                                 <BsArrowUp />
