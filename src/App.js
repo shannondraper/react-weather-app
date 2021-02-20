@@ -6,15 +6,21 @@ import WeatherToday from './components/WeatherToday';
 import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
 import fetch from 'node-fetch';
+import { WiDaySunny } from 'react-icons/wi';
+
 
 const Wrapper = styled.main`
 	display        : flex;
 	flex-direction : column;
 	margin         : 0px auto;
 `;
+const LoadingText = styled.p`
+	text-align: center;
+`;
 
 export default function App() {
 	const [weather, setWeather] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	// api data from proxied url
 	const apiURL = 'https://express-weather-api.herokuapp.com/';
@@ -28,6 +34,7 @@ export default function App() {
 		fetchData()
 
 		fetch(apiURL)
+			.then(setLoading(false))
 			.then(response => response.json())
 			.then(json => setWeather(json))
 	}, [])
@@ -39,22 +46,29 @@ export default function App() {
 
 	return (
 		<>
-			<Wrapper>
-				<LocationData
-					weather={weather}
-				/>
-				<div className="flexLayout">
-					<WeatherToday
-						weather={weather}
-					/>
-					<WeatherTomorrow
-						weather={weather}
-					/>
-				</div>
-				<WeatherForecast
-					weather={weather}
-				/>
-			</Wrapper>
+			{
+				loading
+					? <>
+						<WiDaySunny className="spin" />
+						<LoadingText>LOADING</LoadingText>
+					</>
+					: <Wrapper>
+						<LocationData
+							weather={weather}
+						/>
+						<div className="flexLayout">
+							<WeatherToday
+								weather={weather}
+							/>
+							<WeatherTomorrow
+								weather={weather}
+							/>
+						</div>
+						<WeatherForecast
+							weather={weather}
+						/>
+					</Wrapper>
+			}
 		</>
 	)
 }
