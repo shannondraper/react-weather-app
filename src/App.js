@@ -7,6 +7,7 @@ import WeatherTomorrow from './components/WeatherTomorrow';
 import WeatherForecast from './components/WeatherForecast';
 import fetch from 'node-fetch';
 import { WiDaySunny } from 'react-icons/wi';
+import axios from 'axios';
 
 
 const Wrapper = styled.main`
@@ -25,24 +26,22 @@ export default function App() {
 	// api data from proxied url
 	const apiURL = 'https://express-weather-api.herokuapp.com/';
 
-	useEffect(() => {
-		async function fetchData() {
-			const response = await fetch(apiURL)
-			const data = await response.json();
-			setWeather(data)
+	const fetchAPIData = async () => {
+		try {
+			await axios
+				.get(apiURL)
+				.then(response => {
+					console.log(response)
+					setWeather(response.data)
+				})
+			setLoading(false);
+		} catch (error) {
+			console.log(error)
 		}
-		fetchData()
-
-		fetch(apiURL)
-			.then(setLoading(false))
-			.then(response => response.json())
-			.then(json => setWeather(json))
-	}, [])
-
-	// trigger useEffect to re-run once real weather data is loaded
-	if (weather === null) {
-		return null;
 	}
+	useEffect(() => {
+		fetchAPIData();
+	}, [])
 
 	return (
 		<>
