@@ -53,7 +53,7 @@ function WeatherToday({ weather, farenheitChecked }) {
                 </div>
                 <div className="humidity">
                     <h3>Humidity</h3>
-                    {<h2>{weather.currently.humidity * 100}%</h2>}
+                    {<h2>{Math.round(weather.currently.humidity * 100)}%</h2>}
                 </div>
                 <div className="pop">
                     <h3>P.0.P.</h3>
