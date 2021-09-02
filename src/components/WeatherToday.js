@@ -38,7 +38,7 @@ function WeatherToday({ weather, farenheitChecked }) {
                     {<WeatherIcon DarkSkyIconName={weather.currently.icon} />}
                 </div>
                 <div className="currentDescription">
-                    {<p>{weather.daily.summary} </p>}
+                    {<p>{weather.daily.summary}</p>}
                 </div>
             </div>
             <div className="todayData flex">
